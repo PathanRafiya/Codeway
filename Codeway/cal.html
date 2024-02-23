@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="cal.css">
+<body>
+    <div class = "main">
+    <input type="text" id="result" readonly>
+  </div>
+  <div class = "button">
+  <br>
+  <button class="numbutton" onclick="appendNumber(1)">1</button>
+  <button class="numbutton" onclick="appendNumber(2)">2</button>
+  <button class="numbutton" onclick="appendNumber(3)">3</button>
+  <button class="optbutton" onclick="appendOperator('+')">+</button>
+  <br>
+  <button class="numbutton" onclick="appendNumber(4)">4</button>
+  <button class="numbutton" onclick="appendNumber(5)">5</button>
+  
+  <button class="numbutton"  onclick="appendNumber(6)">6</button>
+  <button  class="optbutton" onclick="appendOperator('-')">-</button>
+  <br>
+  <button class="numbutton" onclick="appendNumber(7)">7</button>
+  <button class="numbutton" onclick="appendNumber(8)">8</button>
+  <button class="numbutton" onclick="appendNumber(9)">9</button>
+  <button  class="optbutton" onclick="appendOperator('*')">*</button>
+  <br>
+  <button class="numbutton" onclick="appendNumber(0)">0</button>
+  <button  class="optbutton"  onclick="calculate()">=</button>
+  <button   class="optbutton"  onclick="appendOperator('/')">/</button>
+  <button  class="optbutton"  onclick="clearResult()">C</button>
+  </div>
+</body>
+<script>
+    let result = "";
+
+function appendNumber(number) {
+  result += number;
+  document.getElementById("result").value = result;
+}
+
+function appendOperator(operator) {
+  result += operator;
+  document.getElementById("result").value = result;
+}
+
+function calculate() {
+  try {
+    result = eval(result);
+    document.getElementById("result").value = result;
+  } catch (error) {
+    document.getElementById("result").value = "Error";
+  }
+}
+
+function clearResult() {
+  result = "";
+  document.getElementById("result").value = result;
+}
+
+</script>
+
+</html>
